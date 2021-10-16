@@ -1,20 +1,26 @@
 
 import java.util.Scanner;
 
-public class Password {
+class Password {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
         // Write your program here
-        System.out.println("Enter the first string:");
-        String input = scan.nextLine();
-        System.out.println("Enter the second string:");
-        String input2 = scan.nextLine();
-        if (input.equals(input2)) {
-            System.out.println("Same!");
+        System.out.println("Value of the gift?");
+        int input = scan.nextInt();
+        if (input < 5000) {
+            System.out.println("No tax!");
+        } else if (input < 25000) {
+            System.out.println("Tax: " + (100 + (input - 5000) * .08));
+        } else if (input < 55000) {
+            System.out.println("Tax: " + (1700 + (input - 25000) * .1));
+        } else if (input < 200000) {
+            System.out.println("Tax: " + (4700 + (input - 55000) * .12));
+        } else if (input < 1000000) {
+            System.out.println("Tax: " + (22100 + (input - 200000) * .15));
         } else {
-            System.out.println("Different");
+            System.out.println("Tax: " + (142100 + (input - 1000000) * .17));
         }
     }
 }
